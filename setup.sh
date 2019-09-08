@@ -57,7 +57,13 @@ sudo apt-get install -y steam-installer
 ## Disable Apport
 sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 
-# Gotta reboot now:
+# Fixing an Ubuntu bug that stops you from burning cd's
+
+sudo chmod 4711 /usr/bin/cdrdao
+sudo chmod 4711 /usr/bin/wodim
+sudo chmod 0755 /usr/bin/growisofs
+
+# Gotta update now:
 sudo apt update && sudo apt upgrade -y
 
 echo $'\n'$"*** All done! Please reboot now. ***"
